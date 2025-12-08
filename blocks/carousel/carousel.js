@@ -3,11 +3,13 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 /**
  * Create a carousel slide from Universal Editor row-per-field structure
- * Each carousel item has 4 rows:
+ * With boolean fields, the structure becomes:
  * - Row 0: image (with imageAlt embedded as attribute)
  * - Row 1: content group (content_title + content_description grouped)
- * - Row 2: primaryCta (with primaryCtaText collapsed into link text)
- * - Row 3: secondaryCta (with secondaryCtaText collapsed into link text)
+ * - Row 2: primaryCta link (with primaryCtaText embedded)
+ * - Row 3: primaryCtaNewTab boolean (if checked, appears as separate row with "true")
+ * - Row 4: secondaryCta link (with secondaryCtaText embedded)
+ * - Row 5: secondaryCtaNewTab boolean (if checked, appears as separate row with "true")
  * @param {Element} item - The carousel item container
  * @returns {Element} The slide element
  */
@@ -65,31 +67,48 @@ function createSlide(item) {
   const ctasDiv = document.createElement('div');
   ctasDiv.className = 'carousel-slide-ctas';
 
-  // Row 2: Primary CTA (primaryCta link with primaryCtaText collapsed)
-  // primaryCtaNewTab boolean field is embedded (doesn't create visible row)
-  const primaryCta = rows[2]?.querySelector('a');
+  // Find primary CTA - look for first link after content
+  let primaryCtaIndex = -1;
+  let primaryCta = null;
+  for (let i = 2; i < rows.length; i += 1) {
+    const link = rows[i]?.querySelector('a');
+    if (link) {
+      primaryCta = link;
+      primaryCtaIndex = i;
+      break;
+    }
+  }
+
   if (primaryCta) {
     primaryCta.classList.add('button', 'primary');
-    // Check data attribute for new tab setting (boolean fields become data attributes)
-    const newTab = rows[2]?.textContent?.includes('true');
-    if (newTab) {
+    // Check next row for boolean "true" value
+    const nextRow = rows[primaryCtaIndex + 1];
+    if (nextRow?.textContent?.trim() === 'true') {
       primaryCta.target = '_blank';
       primaryCta.rel = 'noopener noreferrer';
     }
     ctasDiv.append(primaryCta);
   }
 
-  // Row 3: Secondary CTA (secondaryCta link with secondaryCtaText collapsed)
-  // secondaryCtaNewTab boolean field is embedded (doesn't create visible row)
-  const secondaryCta = rows[3]?.querySelector('a');
+  // Find secondary CTA - look for second link after primary
+  let secondaryCta = null;
+  for (let i = primaryCtaIndex + 1; i < rows.length; i += 1) {
+    const link = rows[i]?.querySelector('a');
+    if (link) {
+      secondaryCta = link;
+      const secondaryCtaIndex = i;
+      // Check next row for boolean "true" value
+      const nextRow = rows[secondaryCtaIndex + 1];
+      if (nextRow?.textContent?.trim() === 'true') {
+        secondaryCta.target = '_blank';
+        secondaryCta.rel = 'noopener noreferrer';
+      }
+      break;
+    }
+  }
+
   if (secondaryCta) {
     secondaryCta.classList.add('button', 'secondary');
-    // Check data attribute for new tab setting (boolean fields become data attributes)
-    const newTab = rows[3]?.textContent?.includes('true');
-    if (newTab) {
-      secondaryCta.target = '_blank';
-      secondaryCta.rel = 'noopener noreferrer';
-    }
     ctasDiv.append(secondaryCta);
   }
 
