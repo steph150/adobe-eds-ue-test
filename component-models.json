@@ -160,7 +160,7 @@
       }
     ]
   },
-  {
+  
     "id": "carousel-item",
     "fields": [
       {
@@ -179,13 +179,13 @@
       {
         "component": "text-input",
         "valueType": "string",
-        "name": "title",
+        "name": "content_title",
         "label": "Title"
       },
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "description",
+        "name": "content_description",
         "label": "Description"
       },
       {
