@@ -201,6 +201,12 @@
         "label": "Primary CTA Text"
       },
       {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "primaryCtaNewTab",
+        "label": "Open Primary CTA in New Tab"
+      },
+      {
         "component": "aem-content",
         "valueType": "string",
         "name": "secondaryCta",
@@ -211,6 +217,12 @@
         "valueType": "string",
         "name": "secondaryCtaText",
         "label": "Secondary CTA Text"
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "secondaryCtaNewTab",
+        "label": "Open Secondary CTA in New Tab"
       }
     ]
   },
