@@ -1,15 +1,14 @@
 /* Icon Tile Block Styles */
 .icon-tile {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 2rem 0;
 }
 
-/* One tile layout - centered, single column */
+/* One tile layout - single column */
 .icon-tile.one-tile {
   grid-template-columns: 1fr;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 800px;
 }
 
 /* Two tiles layout - responsive grid */
@@ -21,22 +20,22 @@
 .icon-tile .icon-tile-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-  background-color: var(--background-color, #f5f5f5);
-  border-radius: 8px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 3rem 2.5rem;
+  background-color: #f5f5f7;
+  border-radius: 0;
   height: 100%;
 }
 
 /* Icon container */
 .icon-tile-icon {
-  margin-bottom: 1.5rem;
-  width: 64px;
-  height: 64px;
+  margin-bottom: 2rem;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .icon-tile-icon picture {
@@ -55,18 +54,20 @@
 
 /* Title */
 .icon-tile-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 1rem;
-  color: var(--heading-color, #000);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1.25rem;
+  color: #000;
+  line-height: 1.2;
 }
 
 /* Description */
 .icon-tile-description {
   font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text-color, #333);
-  margin: 0;
+  line-height: 1.75;
+  color: #6b6b6b;
+  margin: 0 0 2rem;
+  flex-grow: 1;
 }
 
 .icon-tile-description p {
@@ -89,20 +90,45 @@
 }
 
 .icon-tile-description a {
-  color: var(--link-color, #0056b3);
-  text-decoration: underline;
+  color: #0056b3;
+  text-decoration: none;
 }
 
 .icon-tile-description a:hover {
-  color: var(--link-hover-color, #003d82);
+  text-decoration: underline;
 }
 
 .icon-tile-description strong {
   font-weight: 600;
+  color: #000;
 }
 
 .icon-tile-description em {
   font-style: italic;
+}
+
+/* Button styling within tiles */
+.icon-tile-description .button-container {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.icon-tile-description .button,
+.icon-tile-description a.button {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background-color: #3d8b40;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.icon-tile-description .button:hover,
+.icon-tile-description a.button:hover {
+  background-color: #2d6b30;
+  text-decoration: none;
 }
 
 /* Tablet breakpoint */
@@ -110,36 +136,36 @@
   .icon-tile.two-tiles {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .icon-tile-icon {
-    width: 80px;
-    height: 80px;
+
+  .icon-tile {
+    gap: 2rem;
   }
 }
 
 /* Desktop breakpoint */
 @media (width >= 900px) {
   .icon-tile {
-    gap: 2.5rem;
+    gap: 2rem;
   }
-  
+
   .icon-tile .icon-tile-item {
-    padding: 2.5rem;
+    padding: 3.5rem 3rem;
   }
-  
+
   .icon-tile-icon {
-    width: 96px;
-    height: 96px;
-    margin-bottom: 2rem;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 2.5rem;
   }
-  
+
   .icon-tile-title {
-    font-size: 1.75rem;
-    margin-bottom: 1.25rem;
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
   }
-  
+
   .icon-tile-description {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
+    line-height: 1.8;
   }
 }
 
