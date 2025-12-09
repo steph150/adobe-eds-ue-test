@@ -161,60 +161,6 @@
     ]
   },
   {
-    "id": "carousel-item",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Image Alt Text"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Title"
-      },
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "description",
-        "label": "Description"
-      },
-      {
-        "component": "aem-content",
-        "valueType": "string",
-        "name": "primaryCta_link",
-        "label": "Primary CTA Link"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "primaryCta_text",
-        "label": "Primary CTA Text"
-      },
-      {
-        "component": "aem-content",
-        "valueType": "string",
-        "name": "secondaryCta_link",
-        "label": "Secondary CTA Link"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "secondaryCta_text",
-        "label": "Secondary CTA Text"
-      }
-    ]
-  },
-  {
     "id": "columns",
     "fields": [
       {
