@@ -17,7 +17,7 @@
 }
 
 /* Individual tile item */
-.icon-tile .icon-tile-item {
+.icon-tile > div {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -148,7 +148,7 @@
     gap: 2rem;
   }
 
-  .icon-tile .icon-tile-item {
+  .icon-tile > div {
     padding: 3.5rem 3rem;
   }
 
@@ -170,6 +170,6 @@
 }
 
 /* Support for tiles without icons */
-.icon-tile .icon-tile-item:not(:has(.icon-tile-icon)) .icon-tile-content {
+.icon-tile > div:not(:has(.icon-tile-icon)) .icon-tile-content {
   padding-top: 0;
 }

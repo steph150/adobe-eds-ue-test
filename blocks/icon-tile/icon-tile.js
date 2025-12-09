@@ -61,19 +61,12 @@ function decorateTileItem(item) {
  * @param {Element} block The icon-tile block element
  */
 export default async function decorate(block) {
-  // Get all tile items (each child is a tile item wrapper)
+  // Get all tile items (direct children of block are the items)
   const items = [...block.children];
 
   // Process each tile item
   items.forEach((item) => {
-    // Each item has one child div that contains the rows
-    const itemWrapper = item.querySelector('div');
-    if (itemWrapper) {
-      const tileItem = itemWrapper.querySelector('.icon-tile-item');
-      if (tileItem) {
-        decorateTileItem(tileItem);
-      }
-    }
+    decorateTileItem(item);
   });
 
   // Add class based on number of tiles for styling
