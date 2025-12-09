@@ -183,7 +183,7 @@
     "id": "downloads",
     "fields": [
       {
-        "component": "text-input",
+        "component": "text",
         "valueType": "string",
         "name": "heading",
         "label": "Section Heading",
@@ -195,7 +195,7 @@
     "id": "download-item",
     "fields": [
       {
-        "component": "text-input",
+        "component": "text",
         "valueType": "string",
         "name": "label",
         "label": "Label",
@@ -203,7 +203,7 @@
         "required": true
       },
       {
-        "component": "text-area",
+        "component": "text",
         "valueType": "string",
         "name": "description",
         "label": "Description",
