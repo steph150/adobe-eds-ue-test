@@ -171,13 +171,13 @@
         "multi": false
       },
       {
-        "component": "text-input",
+        "component": "text",
         "valueType": "string",
         "name": "imageAlt",
         "label": "Image Alt Text"
       },
       {
-        "component": "text-input",
+        "component": "text",
         "valueType": "string",
         "name": "title",
         "label": "Title"
@@ -195,7 +195,7 @@
         "label": "Primary CTA Link"
       },
       {
-        "component": "text-input",
+        "component": "text",
         "valueType": "string",
         "name": "primaryCta_text",
         "label": "Primary CTA Text"
@@ -207,7 +207,7 @@
         "label": "Secondary CTA Link"
       },
       {
-        "component": "text-input",
+        "component": "text",
         "valueType": "string",
         "name": "secondaryCta_text",
         "label": "Secondary CTA Text"
