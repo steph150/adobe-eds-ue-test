@@ -1,0 +1,136 @@
+{
+  "definitions": [
+    {
+      "title": "Downloads",
+      "id": "downloads",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Downloads",
+              "filter": "downloads"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Download Item",
+      "id": "download-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Download Item",
+              "model": "download-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "downloads",
+      "fields": [
+        {
+          "component": "text-input",
+          "valueType": "string",
+          "name": "heading",
+          "label": "Section Heading",
+          "description": "Optional heading for the downloads section"
+        }
+      ]
+    },
+    {
+      "id": "download-item",
+      "fields": [
+        {
+          "component": "text-input",
+          "valueType": "string",
+          "name": "label",
+          "label": "Label",
+          "description": "The text to appear on the file",
+          "required": true
+        },
+        {
+          "component": "text-area",
+          "valueType": "string",
+          "name": "description",
+          "label": "Description",
+          "description": "A short description to appear next to the label"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "path",
+          "label": "Download Path",
+          "description": "The location of the file",
+          "required": true
+        },
+        {
+          "component": "select",
+          "name": "icon",
+          "label": "Icon",
+          "description": "Icon representing file type",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "PDF",
+              "value": "pdf"
+            },
+            {
+              "name": "Word Document",
+              "value": "word"
+            },
+            {
+              "name": "Excel",
+              "value": "excel"
+            },
+            {
+              "name": "PowerPoint",
+              "value": "powerpoint"
+            },
+            {
+              "name": "ZIP",
+              "value": "zip"
+            },
+            {
+              "name": "Visio (VSD)",
+              "value": "vsd"
+            },
+            {
+              "name": "Application",
+              "value": "application"
+            },
+            {
+              "name": "Audio File",
+              "value": "audio"
+            },
+            {
+              "name": "Video File",
+              "value": "video"
+            }
+          ]
+        },
+        {
+          "component": "boolean",
+          "name": "sameTab",
+          "label": "Open in same tab",
+          "description": "Whether the download link opens in the same tab. By default, download links open in a new tab/window.",
+          "valueType": "boolean"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "downloads",
+      "components": [
+        "download-item"
+      ]
+    }
+  ]
+}
