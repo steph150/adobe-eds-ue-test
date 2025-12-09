@@ -9,7 +9,6 @@
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
               "name": "Downloads",
-              "model": "downloads",
               "filter": "downloads"
             }
           }
@@ -34,18 +33,6 @@
   ],
   "models": [
     {
-      "id": "downloads",
-      "fields": [
-        {
-          "component": "text",
-          "valueType": "string",
-          "name": "heading",
-          "label": "Section Heading",
-          "description": "Optional heading for the downloads section"
-        }
-      ]
-    },
-    {
       "id": "download-item",
       "fields": [
         {
@@ -53,8 +40,7 @@
           "valueType": "string",
           "name": "label",
           "label": "Label",
-          "description": "The text to appear on the file",
-          "required": true
+          "description": "The text to appear on the file"
         },
         {
           "component": "text",
@@ -68,8 +54,7 @@
           "valueType": "string",
           "name": "path",
           "label": "Download Path",
-          "description": "The location of the file",
-          "required": true
+          "description": "The location of the file"
         },
         {
           "component": "select",
