@@ -24,7 +24,8 @@
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
               "name": "Carousel Item",
-              "model": "carousel-item"
+              "model": "carousel-item",
+              "filter": "carousel-item"
             }
           }
         }
@@ -63,25 +64,25 @@
         {
           "component": "aem-content",
           "valueType": "string",
-          "name": "primaryCta_link",
+          "name": "cta_primaryLink",
           "label": "Primary CTA Link"
         },
         {
           "component": "text",
           "valueType": "string",
-          "name": "primaryCta_text",
+          "name": "cta_primaryText",
           "label": "Primary CTA Text"
         },
         {
           "component": "aem-content",
           "valueType": "string",
-          "name": "secondaryCta_link",
+          "name": "cta_secondaryLink",
           "label": "Secondary CTA Link"
         },
         {
           "component": "text",
           "valueType": "string",
-          "name": "secondaryCta_text",
+          "name": "cta_secondaryText",
           "label": "Secondary CTA Text"
         }
       ]
@@ -93,6 +94,10 @@
       "components": [
         "carousel-item"
       ]
+    },
+    {
+      "id": "carousel-item",
+      "components": []
     }
   ]
 }

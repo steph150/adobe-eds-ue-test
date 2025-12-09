@@ -92,8 +92,7 @@ function bindEvents(block) {
  * - Row 0: image (with imageAlt embedded in img alt attribute)
  * - Row 1: title (plain text)
  * - Row 2: description (richtext)
- * - Row 3: primaryCta group (link + text)
- * - Row 4: secondaryCta group (link + text)
+ * - Row 3: cta group (primaryLink, primaryText, secondaryLink, secondaryText all grouped)
  *
  * @param {Element} item - The carousel-item block element
  * @param {number} slideIndex - Index of the slide
@@ -137,22 +136,17 @@ function createSlide(item, slideIndex, carouselId) {
     contentDiv.append(descriptionContent);
   }
 
-  // Add CTAs container
+  // Add CTAs container (row 3 - all CTAs grouped together)
   const ctasDiv = document.createElement('div');
   ctasDiv.classList.add('carousel-slide-ctas');
 
-  // Add primary CTA (row 3 - grouped)
-  const primaryCta = rows[3]?.querySelector('a');
-  if (primaryCta) {
-    primaryCta.classList.add('button', 'primary');
-    ctasDiv.append(primaryCta);
-  }
-
-  // Add secondary CTA (row 4 - grouped)
-  const secondaryCta = rows[4]?.querySelector('a');
-  if (secondaryCta) {
-    secondaryCta.classList.add('button', 'secondary');
-    ctasDiv.append(secondaryCta);
+  const ctaRow = rows[3];
+  if (ctaRow) {
+    const links = ctaRow.querySelectorAll('a');
+    links.forEach((link, index) => {
+      link.classList.add('button', index === 0 ? 'primary' : 'secondary');
+      ctasDiv.append(link);
+    });
   }
 
   if (ctasDiv.children.length > 0) {
