@@ -10,11 +10,5 @@
   },
   {
     "...": "../blocks/*/_*.json#/filters"
-  },
-  {
-    "id": "carousel",
-    "components": [
-      "carousel-item"
-    ]
   }
 ]

@@ -45,11 +45,5 @@
       "button",
       "title"
     ]
-  },
-  {
-    "id": "carousel",
-    "components": [
-      "carousel-item"
-    ]
   }
 ]
