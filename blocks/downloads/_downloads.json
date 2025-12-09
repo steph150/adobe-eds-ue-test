@@ -100,13 +100,6 @@
               "value": "video"
             }
           ]
-        },
-        {
-          "component": "boolean",
-          "name": "sameTab",
-          "label": "Open in same tab",
-          "description": "Whether the download link opens in the same tab. By default, download links open in a new tab/window.",
-          "valueType": "boolean"
         }
       ]
     }

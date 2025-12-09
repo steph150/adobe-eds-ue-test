@@ -41,13 +41,11 @@ function processDownloadItem(row) {
   const descriptionRow = rows[1];
   const pathRow = rows[2];
   const iconRow = rows[3];
-  const sameTabRow = rows[4];
 
   const label = labelRow?.textContent?.trim() || '';
   const description = descriptionRow?.textContent?.trim() || '';
   const link = pathRow?.querySelector('a');
   const iconType = iconRow?.textContent?.trim().toLowerCase() || '';
-  const sameTab = sameTabRow?.textContent?.trim().toLowerCase() === 'true';
 
   if (!link || !label) {
     return null; // Skip items without required fields
@@ -76,11 +74,9 @@ function processDownloadItem(row) {
   downloadLink.textContent = label;
   downloadLink.className = 'downloads-item-link';
 
-  // Set target attribute based on sameTab option
-  if (!sameTab) {
-    downloadLink.target = '_blank';
-    downloadLink.rel = 'noopener noreferrer';
-  }
+  // Always open downloads in a new tab
+  downloadLink.target = '_blank';
+  downloadLink.rel = 'noopener noreferrer';
 
   labelElement.appendChild(downloadLink);
   textContainer.appendChild(labelElement);
