@@ -191,13 +191,17 @@ This JSON file must follow the structure defined at https://www.aem.live/develop
 
 **Note:** Even simple standalone blocks should include an empty `filters: []` array for consistency and future extensibility.
 
-#### Registering Blocks in Sections
+#### Registering Blocks in Universal Editor Configuration Files
 
-After creating a new block with Universal Editor, you must register it in `models/_section.json` to make it available for authors to add to page sections:
+After creating a new block with Universal Editor, you must register it in **FOUR configuration files** to make it fully operational and available to authors:
+
+##### 1. Register in `models/_section.json`
+
+Add your block ID to the section filter so it can be added to page sections:
 
 1. Open `models/_section.json`
 2. Locate the `filters` array
-3. Add your block's ID to the `components` array
+3. Add your block's ID to the `components` array (alphabetically)
 4. The block ID must match the `id` field from your block's `_blockname.json` definition
 
 **Example `models/_section.json`:**
@@ -210,27 +214,165 @@ After creating a new block with Universal Editor, you must register it in `model
     {
       "id": "section",
       "components": [
-        "text",
-        "image",
+        "actiontile",  // ← Add new blocks alphabetically
         "button",
-        "title",
+        "cards",
         "columns",
-        "hero",      // ← Registered blocks appear here
-        "embed"      // ← Add new block IDs to this array
+        "contentblock",
+        "embed",
+        "fragment",
+        "heading",
+        "hero",
+        "image",
+        "text",
+        "title",
+        "twitter"
       ]
     }
   ]
 }
 ```
 
-**Without this registration:**
-- Authors won't be able to add your block to sections in the Universal Editor
-- The block won't appear in the component picker
-- Your block code will exist but won't be usable by authors
+##### 2. Register in `component-definition.json`
+
+Add your block to the global component definitions so it appears in the Universal Editor component picker:
+
+1. Open `component-definition.json` in the project root
+2. Locate the `"Blocks"` group (in the `groups` array)
+3. Add your block definition to the `components` array (alphabetically by title)
+4. Follow the exact structure shown below
+
+**Example addition to `component-definition.json`:**
+
+```json
+{
+  "groups": [
+    {
+      "title": "Blocks",
+      "id": "blocks",
+      "components": [
+        {
+          "title": "ActionTile",  // ← Display name in UI
+          "id": "actiontile",      // ← Must match block folder name
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ActionTile",  // ← Block name
+                  "model": "actiontile"   // ← Must match model ID
+                }
+              }
+            }
+          }
+        },
+        // ... other blocks alphabetically
+      ]
+    }
+  ]
+}
+```
+
+##### 3. Register in `component-models.json`
+
+Add your block's content model to the global models registry:
+
+1. Open `component-models.json` in the project root
+2. Add your model object to the array (alphabetically by ID at the beginning)
+3. Copy the exact `fields` array from your `_blockname.json` file
+4. The model `id` must match your block name
+
+**Example addition to `component-models.json`:**
+
+```json
+[
+  {
+    "id": "actiontile",  // ← Must match block name
+    "fields": [
+      // Copy the EXACT fields array from blocks/actiontile/_actiontile.json
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "actiontile_subtitle",
+        "label": "Subtitle",
+        "description": "Purple accent badge text above heading"
+      },
+      // ... rest of fields
+    ]
+  },
+  {
+    "id": "button",
+    "fields": [...]
+  },
+  // ... other models alphabetically
+]
+```
+
+**CRITICAL:** Keep `component-models.json` synchronized with `_blockname.json` files:
+- When you add a field to `_blockname.json`, add it to `component-models.json`
+- When you rename a field, update both files
+- When you remove a field, remove from both files
+- When you change field order, update both files to match
+
+##### 4. Register in `component-filters.json`
+
+Add your block to the section component filter:
+
+1. Open `component-filters.json` in the project root
+2. Locate the filter object with `"id": "section"`
+3. Add your block ID to the `components` array (alphabetically)
+
+**Example `component-filters.json`:**
+
+```json
+[
+  {
+    "id": "main",
+    "components": ["section"]
+  },
+  {
+    "id": "section",
+    "components": [
+      "actiontile",     // ← Add new blocks alphabetically
+      "button",
+      "cards",
+      "columns",
+      "contentblock",
+      "embed",
+      "fragment",
+      "heading",
+      "hero",
+      "image",
+      "text",
+      "title",
+      "twitter"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": ["card"]
+  }
+]
+```
+
+##### Registration Checklist
+
+Before considering a Universal Editor block complete, ensure it's registered in ALL FOUR files:
+
+- [ ] `models/_section.json` - Added to filters.components array
+- [ ] `component-definition.json` - Added to Blocks group
+- [ ] `component-models.json` - Added model with all fields
+- [ ] `component-filters.json` - Added to section filter
+
+**Without proper registration:**
+- ❌ Authors won't be able to add your block to sections in the Universal Editor
+- ❌ The block won't appear in the component picker
+- ❌ Your block code will exist but won't be usable by authors
+- ❌ Content models may not render correctly
 
 **When to register:**
-- Always register new blocks that authors should be able to add to pages
-- Skip registration only for auto-blocks or deprecated blocks that shouldn't be directly authored
+- ✅ Always register new blocks that authors should be able to add to pages
+- ❌ Skip registration only for auto-blocks or deprecated blocks that shouldn't be directly authored
 
 #### Row-Per-Field DOM Structure
 

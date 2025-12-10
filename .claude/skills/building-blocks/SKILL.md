@@ -124,28 +124,113 @@ If Universal Editor detected, follow **Option A**. Otherwise, follow **Option B*
 
 **Note:** Always include an empty `filters: []` array, even for simple blocks. This provides consistency and allows for future extensibility.
 
-4. **Register the block in `models/_section.json`** to make it available for authors to add to sections:
+4. **Register the block in Universal Editor configuration files** to make it available for authors:
+
+   **CRITICAL:** Universal Editor blocks must be registered in FOUR configuration files:
+
+   **a) Register in `models/_section.json`:**
    - Open `models/_section.json`
-   - Add your block ID to the `components` array within the `filters` section
-   - Example: If creating a "hero" block, add `"hero"` to the array
-   - The block ID should match the `id` field in your block's definition
+   - Add your block ID to the `components` array within the `filters` section (alphabetically)
+   - Example: If creating an "actiontile" block, add `"actiontile"` to the array
 
    ```json
    "filters": [
      {
        "id": "section",
        "components": [
-         "text",
-         "image",
+         "actiontile",  // ← Add new blocks alphabetically
          "button",
-         "title",
+         "cards",
          "columns",
-         "hero",      // ← Add your new block here
-         "embed"
+         "hero",
+         "image",
+         "text"
        ]
      }
    ]
    ```
+
+   **b) Register in `component-definition.json`:**
+   - Open `component-definition.json` in project root
+   - Locate the `"Blocks"` group in the `groups` array
+   - Add your block definition to the `components` array (alphabetically by title)
+
+   ```json
+   {
+     "title": "Blocks",
+     "id": "blocks",
+     "components": [
+       {
+         "title": "ActionTile",  // Display name in UI
+         "id": "actiontile",      // Must match block folder name
+         "plugins": {
+           "xwalk": {
+             "page": {
+               "resourceType": "core/franklin/components/block/v1/block",
+               "template": {
+                 "name": "ActionTile",
+                 "model": "actiontile"  // Must match model ID
+               }
+             }
+           }
+         }
+       },
+       // ... other blocks
+     ]
+   }
+   ```
+
+   **c) Register in `component-models.json`:**
+   - Open `component-models.json` in project root
+   - Add your model object to the array (alphabetically by ID at the beginning)
+   - Copy the EXACT `fields` array from your `_blockname.json` file
+
+   ```json
+   [
+     {
+       "id": "actiontile",  // Must match block name
+       "fields": [
+         // Copy fields array from blocks/actiontile/_actiontile.json
+       ]
+     },
+     // ... other models
+   ]
+   ```
+
+   **CRITICAL:** Keep `component-models.json` synchronized with `_blockname.json`:
+   - When you add/rename/remove/reorder fields in `_blockname.json`, update `component-models.json`
+   - These files must stay in sync or content models will break
+
+   **d) Register in `component-filters.json`:**
+   - Open `component-filters.json` in project root
+   - Find the filter object with `"id": "section"`
+   - Add your block ID to the `components` array (alphabetically)
+
+   ```json
+   [
+     {
+       "id": "section",
+       "components": [
+         "actiontile",  // ← Add new blocks alphabetically
+         "button",
+         "cards",
+         "columns",
+         "hero"
+       ]
+     }
+   ]
+   ```
+
+   **Registration Checklist - All FOUR files required:**
+   - [ ] `models/_section.json` - Added to filters.components
+   - [ ] `component-definition.json` - Added to Blocks group
+   - [ ] `component-models.json` - Added model with all fields
+   - [ ] `component-filters.json` - Added to section filter
+
+   **Without complete registration:**
+   - ❌ Block won't appear in Universal Editor component picker
+   - ❌ Authors can't add block to pages
+   - ❌ Content models may not render correctly
 
 5. Use the boilerplate structure for JS and CSS files:
    - JS file exports a default `decorate(block)` function (can be async if needed)

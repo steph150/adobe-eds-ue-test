@@ -90,13 +90,27 @@ Read `resources/universal-editor-models.md` for complete guidance on:
    - Use `imageAlt` for image alt text (embedded)
    - Use `buttonText` for button text (embedded)
    - Use `groupName_fieldName` for grouping
-3. Minimize field count (aim for 3-6 fields)
+3. Minimize field count (aim for 3-6 fields, max 4 visible rows due to ESLint rule)
 4. Document the model with clear labels
+
+**Universal Editor Configuration Files:**
+
+After creating the `_blockname.json` model, you must register the block in FOUR configuration files:
+
+1. **`component-models.json`** - Add your model with exact field definitions
+2. **`component-definition.json`** - Add to Blocks group for component picker
+3. **`component-filters.json`** - Add to section filter
+4. **`models/_section.json`** - Add to section components
+
+**CRITICAL:** Keep `component-models.json` synchronized with `_blockname.json`:
+- When you add/rename/remove/reorder fields, update both files
+- Copy the EXACT `fields` array from `_blockname.json` to `component-models.json`
 
 **Return to calling skill with:**
 - The `_blockname.json` content
 - Expected row structure (X visible rows from Y model fields)
 - Notes about embedded fields and grouping
+- Reminder to register in all 4 configuration files
 
 **Then STOP - do not proceed to Steps 1-4 below. Those steps are for document authoring only.**
 
