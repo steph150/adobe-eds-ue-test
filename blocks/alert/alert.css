@@ -1,0 +1,319 @@
+/* Alert Block Styles */
+
+.alert {
+  position: relative;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* Alert Content Layout */
+.alert-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+}
+
+/* Icon Styling */
+.alert-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-icon .icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Text Container */
+.alert-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-title {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+.alert-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.alert-description p {
+  margin: 0;
+}
+
+.alert-description p + p {
+  margin-top: 0.5rem;
+}
+
+.alert-description a {
+  text-decoration: underline;
+}
+
+/* CTA Button Container */
+.alert-cta {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.alert-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.alert-cta-button:hover {
+  transform: translateY(-1px);
+}
+
+.alert-cta-button:active {
+  transform: translateY(0);
+}
+
+/* Close Button */
+.alert-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  opacity: 0.7;
+}
+
+.alert-close:hover {
+  opacity: 1;
+}
+
+.alert-close-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 300;
+}
+
+/* Theme: Neutral */
+.alert.neutral {
+  background-color: #f5f5f5;
+  border-left: 4px solid #757575;
+  color: #212121;
+}
+
+.alert.neutral .alert-icon {
+  color: #757575;
+}
+
+.alert.neutral .alert-close:hover {
+  background-color: rgb(0 0 0 / 5%);
+}
+
+/* Theme: Warning */
+.alert.warning {
+  background-color: #fff8e1;
+  border-left: 4px solid #f9a825;
+  color: #4e342e;
+}
+
+.alert.warning .alert-icon {
+  color: #f9a825;
+}
+
+.alert.warning .alert-close:hover {
+  background-color: rgb(249 168 37 / 10%);
+}
+
+/* Theme: Information */
+.alert.information {
+  background-color: #e3f2fd;
+  border-left: 4px solid #1976d2;
+  color: #0d47a1;
+}
+
+.alert.information .alert-icon {
+  color: #1976d2;
+}
+
+.alert.information .alert-close:hover {
+  background-color: rgb(25 118 210 / 10%);
+}
+
+/* Theme: Success */
+.alert.success {
+  background-color: #e8f5e9;
+  border-left: 4px solid #388e3c;
+  color: #1b5e20;
+}
+
+.alert.success .alert-icon {
+  color: #388e3c;
+}
+
+.alert.success .alert-close:hover {
+  background-color: rgb(56 142 60 / 10%);
+}
+
+/* Theme: Error */
+.alert.error {
+  background-color: #ffebee;
+  border-left: 4px solid #d32f2f;
+  color: #b71c1c;
+}
+
+.alert.error .alert-icon {
+  color: #d32f2f;
+}
+
+.alert.error .alert-close:hover {
+  background-color: rgb(211 47 47 / 10%);
+}
+
+/* CTA Button Theme Colors */
+.alert.neutral .alert-cta-button.primary {
+  background-color: #757575;
+  color: white;
+}
+
+.alert.warning .alert-cta-button.primary {
+  background-color: #f9a825;
+  color: #4e342e;
+}
+
+.alert.information .alert-cta-button.primary {
+  background-color: #1976d2;
+  color: white;
+}
+
+.alert.success .alert-cta-button.primary {
+  background-color: #388e3c;
+  color: white;
+}
+
+.alert.error .alert-cta-button.primary {
+  background-color: #d32f2f;
+  color: white;
+}
+
+/* CTA Button Hover States */
+.alert.neutral .alert-cta-button.primary:hover {
+  background-color: #616161;
+}
+
+.alert.warning .alert-cta-button.primary:hover {
+  background-color: #f57f17;
+}
+
+.alert.information .alert-cta-button.primary:hover {
+  background-color: #1565c0;
+}
+
+.alert.success .alert-cta-button.primary:hover {
+  background-color: #2e7d32;
+}
+
+.alert.error .alert-cta-button.primary:hover {
+  background-color: #c62828;
+}
+
+/* Alert Type: Message (compact) */
+.alert.message {
+  padding: 0.75rem 1rem;
+}
+
+.alert.message .alert-content {
+  gap: 0.75rem;
+}
+
+.alert.message .alert-title {
+  font-size: 0.875rem;
+  margin-bottom: 0.125rem;
+}
+
+.alert.message .alert-description {
+  font-size: 0.8125rem;
+}
+
+/* Alert Type: Banner (with CTA) */
+.alert.banner {
+  padding: 1.5rem;
+}
+
+.alert.banner .alert-content {
+  gap: 1.25rem;
+}
+
+/* Responsive Styles */
+@media (width <= 600px) {
+  .alert.banner {
+    padding: 1rem;
+  }
+
+  .alert-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .alert-cta {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .alert-cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .alert-close {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+@media (width >= 600px) and (width <= 900px) {
+  .alert.banner .alert-content {
+    gap: 1rem;
+  }
+}
+
+@media (width >= 900px) {
+  .alert.banner {
+    padding: 1.5rem 2rem;
+  }
+
+  .alert.banner .alert-content {
+    align-items: center;
+  }
+
+  .alert-title {
+    font-size: 1.125rem;
+  }
+}
