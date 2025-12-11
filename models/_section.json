@@ -43,14 +43,15 @@
     {
       "id": "section",
       "components": [
-        "text",
-        "image",
+        "alert",
         "button",
-        "title",
-        "hero",
         "cards",
         "columns",
-        "fragment"
+        "fragment",
+        "hero",
+        "image",
+        "text",
+        "title"
       ]
     }
   ]
