@@ -7,25 +7,30 @@ export default function decorate(block) {
   const rows = [...block.children];
 
   // Extract content from rows based on Universal Editor model
-  // Row structure (7 model fields, but some collapse):
-  // Row 0: classes (alert type - banner/message)
-  // Row 1: alert_theme (theme selection)
-  // Row 2: title (optional)
-  // Row 3: description
-  // Row 4: cta_link and cta_text (grouped)
-  // Row 5: alert_closeable (boolean)
+  // Field order in model:
+  // 1. classes (Alert Type) - applied to block, not a visible row
+  // 2. alert_theme (grouped with "alert") - Row 0 contains config data
+  // 3. title - Row 1
+  // 4. description - Row 2
+  // 5. cta_link + cta_text (grouped with "cta") - Row 3
+  // 6. alert_closeable (grouped with "alert") - Row 0 with theme
 
-  const themeRow = rows[1];
-  const titleRow = rows[2];
-  const descriptionRow = rows[3];
-  const ctaRow = rows[4];
-  const closeableRow = rows[5];
+  // Row 0 contains alert configuration (theme + closeable)
+  const configRow = rows[0];
+  const titleRow = rows[1];
+  const descriptionRow = rows[2];
+  const ctaRow = rows[3];
 
-  // Get alert type (banner/message) - already set as class
+  // Get alert type (banner/message) from classes field (already applied to block)
   const isBanner = block.classList.contains('banner');
 
-  // Get theme from theme row
-  const theme = themeRow?.textContent?.trim() || 'neutral';
+  // Extract theme from config row - it's the first value in the grouped row
+  const configText = configRow?.textContent?.trim() || '';
+  const configParts = configText.split('\n').map((s) => s.trim()).filter((s) => s);
+  const theme = configParts[0] || 'neutral';
+  const isCloseable = configParts[1]?.toLowerCase() === 'true';
+
+  // Add theme as class
   if (theme && !block.classList.contains(theme)) {
     block.classList.add(theme);
   }
@@ -92,9 +97,6 @@ export default function decorate(block) {
   }
 
   // Add close button if enabled
-  const closeableText = closeableRow?.textContent?.trim().toLowerCase();
-  const isCloseable = closeableText === 'true';
-
   if (isCloseable) {
     const closeButton = document.createElement('button');
     closeButton.className = 'alert-close';
