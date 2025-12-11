@@ -68,17 +68,24 @@
   gap: 8px;
   padding: 12px 24px;
   background-color: #2d7738;
-  color: white;
+  color: white !important;
   text-decoration: none;
   border-radius: 4px;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.5;
   transition: background-color 0.2s ease;
+  border: none;
 }
 
 .alert-button:hover {
   background-color: #1f5527;
+  color: white !important;
+  text-decoration: none;
+}
+
+.alert-button:visited {
+  color: white !important;
 }
 
 .alert-button svg {

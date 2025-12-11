@@ -78,7 +78,7 @@
       {
         "component": "aem-content",
         "valueType": "string",
-        "name": "ctaLink",
+        "name": "cta",
         "label": "CTA Link",
         "description": "Only used for Banner type"
       },

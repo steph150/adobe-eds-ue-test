@@ -10,7 +10,7 @@ export default function decorate(block) {
   const alertTheme = rows[1]?.textContent?.trim().toLowerCase() || 'neutral';
   const titleText = rows[2]?.textContent?.trim();
   const descriptionRow = rows[3];
-  const ctaLinkRow = rows[4];
+  const ctaRow = rows[4]; // cta field (with ctaText collapsed into it)
   const showClose = rows[5]?.textContent?.trim().toLowerCase() === 'true';
 
   // Clear the block
@@ -74,8 +74,8 @@ export default function decorate(block) {
   }
 
   // Add CTA button for banner type if link exists
-  if (alertType === 'banner' && ctaLinkRow) {
-    const link = ctaLinkRow.querySelector('a');
+  if (alertType === 'banner' && ctaRow) {
+    const link = ctaRow.querySelector('a');
     if (link) {
       const buttonContainer = document.createElement('div');
       buttonContainer.className = 'alert-cta';
