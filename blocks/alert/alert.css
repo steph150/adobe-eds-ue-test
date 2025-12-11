@@ -1,0 +1,252 @@
+/* Alert Block Styles */
+.alert {
+  position: relative;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-family: var(--body-font-family);
+}
+
+/* Alert Content Container */
+.alert .alert-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Alert Title */
+.alert .alert-title h2 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Alert Description */
+.alert .alert-description {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.alert .alert-description p {
+  margin: 0 0 0.5rem;
+}
+
+.alert .alert-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Alert CTA */
+.alert .alert-cta {
+  margin-top: 0.5rem;
+}
+
+.alert .alert-cta .button {
+  display: inline-block;
+  padding: 0.625rem 1.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.alert .alert-cta .button.primary {
+  background-color: var(--link-color, #007bff);
+  color: #fff;
+  border: 2px solid var(--link-color, #007bff);
+}
+
+.alert .alert-cta .button.primary:hover {
+  background-color: var(--link-hover-color, #0056b3);
+  border-color: var(--link-hover-color, #0056b3);
+}
+
+/* Close Button */
+.alert .alert-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+  color: currentcolor;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert .alert-close:hover {
+  opacity: 1;
+}
+
+.alert .alert-close:focus {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
+/* Theme: Neutral */
+.alert.neutral {
+  background-color: #f8f9fa;
+  border-left: 4px solid #6c757d;
+  color: #212529;
+}
+
+.alert.neutral .alert-title h2 {
+  color: #212529;
+}
+
+/* Theme: Warning */
+.alert.warning {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  color: #856404;
+}
+
+.alert.warning .alert-title h2 {
+  color: #856404;
+}
+
+/* Theme: Information */
+.alert.information {
+  background-color: #d1ecf1;
+  border-left: 4px solid #17a2b8;
+  color: #0c5460;
+}
+
+.alert.information .alert-title h2 {
+  color: #0c5460;
+}
+
+/* Theme: Success */
+.alert.success {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+  color: #155724;
+}
+
+.alert.success .alert-title h2 {
+  color: #155724;
+}
+
+/* Theme: Error */
+.alert.error {
+  background-color: #f8d7da;
+  border-left: 4px solid #dc3545;
+  color: #721c24;
+}
+
+.alert.error .alert-title h2 {
+  color: #721c24;
+}
+
+/* Theme-specific button styles */
+.alert.warning .alert-cta .button.primary {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #212529;
+}
+
+.alert.information .alert-cta .button.primary {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: #fff;
+}
+
+.alert.success .alert-cta .button.primary {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #fff;
+}
+
+.alert.error .alert-cta .button.primary {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #fff;
+}
+
+/* Theme-specific button hover states */
+.alert.warning .alert-cta .button.primary:hover {
+  background-color: #e0a800;
+  border-color: #e0a800;
+}
+
+.alert.information .alert-cta .button.primary:hover {
+  background-color: #138496;
+  border-color: #138496;
+}
+
+.alert.success .alert-cta .button.primary:hover {
+  background-color: #218838;
+  border-color: #218838;
+}
+
+.alert.error .alert-cta .button.primary:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+}
+
+/* Banner Type - Full Width */
+.alert.banner {
+  border-radius: 0;
+  margin: 0;
+  padding: 1.5rem 2rem;
+}
+
+/* Message Type - Inline */
+.alert.message {
+  max-width: 100%;
+}
+
+/* Responsive Styles */
+@media (width <= 600px) {
+  .alert {
+    padding: 1rem;
+    flex-direction: column;
+  }
+  
+  .alert.banner {
+    padding: 1rem 1.5rem;
+  }
+  
+  .alert .alert-title h2 {
+    font-size: 1rem;
+  }
+  
+  .alert .alert-description {
+    font-size: 0.875rem;
+  }
+  
+  .alert .alert-cta .button {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .alert .alert-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+@media (width >= 900px) {
+  .alert.banner {
+    padding: 2rem 3rem;
+  }
+  
+  .alert .alert-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
