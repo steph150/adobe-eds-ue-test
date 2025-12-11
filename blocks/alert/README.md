@@ -16,24 +16,33 @@ The Alert block provides alert messages on the website in various themes and typ
 - **Description**: Rich text content with formatting
 - **CTA Link** (Banner only): Call-to-action button URL
 - **CTA Text** (Banner only): Button text
+- **Alert Options**: Multi-select field to configure:
+  - **Type**: Select either "Banner Type" or "Message Type"
+  - **Theme**: Select one of Neutral, Warning, Information, Success, or Error
+  - **Close Button**: Enable "Show Close Button" for dismissable alerts
 
-## Block Variants
+### Configuring Alerts
 
-Use block variants to control alert appearance:
+Use the **Alert Options** multi-select field to configure your alert:
 
-- **Type variants:** `banner` (default) or `message`
-- **Theme variants:** `neutral` (default), `warning`, `information`, `success`, `error`
-- **Close button:** Add `close` variant to enable dismissal
+1. **Choose Type:**
+   - Select "Banner Type" for full-width alerts with CTA buttons
+   - Select "Message Type" for inline alerts without CTAs
 
-### Examples
+2. **Choose Theme:**
+   - "Neutral Theme" - General information
+   - "Warning Theme" - Caution messages
+   - "Information Theme" - Helpful information
+   - "Success Theme" - Success confirmations
+   - "Error Theme" - Error messages
 
-```
-Banner + Information + Close:
-alert (banner, information, close)
+3. **Optional Close Button:**
+   - Check "Show Close Button" to allow users to dismiss the alert
+   - Dismissed alerts are remembered via localStorage
 
-Message + Error:
-alert (message, error)
-```
+**Example selections:**
+- Banner with warning: Select "Banner Type" + "Warning Theme"
+- Dismissable success message: Select "Message Type" + "Success Theme" + "Show Close Button"
 
 ## Behavior
 

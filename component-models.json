@@ -171,6 +171,47 @@
         "name": "cta_text",
         "label": "CTA Text",
         "description": "Button text (Banner type only)"
+      },
+      {
+        "component": "multiselect",
+        "valueType": "string",
+        "name": "options_classes",
+        "label": "Alert Options",
+        "description": "Configure alert type, theme, and close button",
+        "options": [
+          {
+            "name": "Banner Type",
+            "value": "banner"
+          },
+          {
+            "name": "Message Type",
+            "value": "message"
+          },
+          {
+            "name": "Neutral Theme",
+            "value": "neutral"
+          },
+          {
+            "name": "Warning Theme",
+            "value": "warning"
+          },
+          {
+            "name": "Information Theme",
+            "value": "information"
+          },
+          {
+            "name": "Success Theme",
+            "value": "success"
+          },
+          {
+            "name": "Error Theme",
+            "value": "error"
+          },
+          {
+            "name": "Show Close Button",
+            "value": "close"
+          }
+        ]
       }
     ]
   },
