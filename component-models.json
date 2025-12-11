@@ -142,6 +142,39 @@
     ]
   },
   {
+    "id": "alert",
+    "fields": [
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "title",
+        "label": "Alert Title",
+        "description": "Main heading for the alert"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description",
+        "description": "Alert message content with formatting support"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "cta_link",
+        "label": "CTA Link",
+        "description": "Optional call-to-action button link (Banner type only)"
+      },
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "cta_text",
+        "label": "CTA Text",
+        "description": "Text to display on the CTA button"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
