@@ -48,7 +48,7 @@
       {
         "component": "multiselect",
         "valueType": "string",
-        "name": "options_classes",
+        "name": "classes",
         "label": "Alert Options",
         "description": "Configure alert type, theme, and close button",
         "options": [
