@@ -142,6 +142,93 @@
     ]
   },
   {
+    "id": "alert",
+    "fields": [
+      {
+        "component": "select",
+        "name": "config_type",
+        "label": "Alert Type",
+        "valueType": "string",
+        "required": true,
+        "options": [
+          {
+            "name": "Banner",
+            "value": "banner"
+          },
+          {
+            "name": "Message",
+            "value": "message"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "config_theme",
+        "label": "Alert Theme",
+        "valueType": "string",
+        "required": true,
+        "options": [
+          {
+            "name": "Neutral",
+            "value": "neutral"
+          },
+          {
+            "name": "Warning",
+            "value": "warning"
+          },
+          {
+            "name": "Information",
+            "value": "information"
+          },
+          {
+            "name": "Success",
+            "value": "success"
+          },
+          {
+            "name": "Error",
+            "value": "error"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "name": "config_showClose",
+        "label": "Show Close Button",
+        "valueType": "boolean"
+      },
+      {
+        "component": "text-input",
+        "name": "content_title",
+        "label": "Alert Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "content_description",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "cta_link",
+        "label": "CTA Link",
+        "valueType": "string"
+      },
+      {
+        "component": "text-input",
+        "name": "cta_text",
+        "label": "CTA Button Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text-input",
+        "name": "cta_title",
+        "label": "CTA Title (Tooltip)",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {

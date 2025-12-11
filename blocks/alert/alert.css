@@ -1,0 +1,209 @@
+/* Alert Block Styles - RHYCM06 */
+
+/* Supports banner and message types with five themes: neutral, warning, information, success, error */
+
+.alert {
+  width: 100%;
+  margin: 0;
+}
+
+.alert-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+/* Alert Icon */
+.alert-icon {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: bold;
+}
+
+/* Alert Content */
+.alert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-title {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.alert-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.alert-description p {
+  margin: 0 0 0.5rem;
+}
+
+.alert-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* CTA Button for Banner Type */
+.alert-cta {
+  margin-top: 1rem;
+}
+
+.alert-cta .button {
+  margin: 0;
+}
+
+/* Close Button */
+.alert-close {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  color: inherit;
+}
+
+.alert-close:hover,
+.alert-close:focus {
+  opacity: 1;
+}
+
+/* Banner Type - Full Width, More Prominent */
+.alert.alert-banner .alert-container {
+  padding: 1.5rem;
+  min-height: 80px;
+}
+
+.alert.alert-banner .alert-title {
+  font-size: 1.125rem;
+}
+
+.alert.alert-banner .alert-description {
+  font-size: 1rem;
+}
+
+/* Message Type - Compact Inline */
+.alert.alert-message .alert-container {
+  padding: 0.875rem 1rem;
+}
+
+.alert.alert-message .alert-title {
+  font-size: 0.938rem;
+}
+
+.alert.alert-message .alert-description {
+  font-size: 0.875rem;
+}
+
+/* Theme: Neutral */
+.alert.alert-neutral .alert-container {
+  background-color: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  color: #333;
+}
+
+.alert.alert-neutral .alert-icon {
+  color: #666;
+}
+
+/* Theme: Warning */
+.alert.alert-warning .alert-container {
+  background-color: #fff7e6;
+  border: 1px solid #ffd591;
+  color: #8c5e00;
+}
+
+.alert.alert-warning .alert-icon {
+  color: #fa8c16;
+}
+
+/* Theme: Information */
+.alert.alert-information .alert-container {
+  background-color: #e6f7ff;
+  border: 1px solid #91d5ff;
+  color: #003a8c;
+}
+
+.alert.alert-information .alert-icon {
+  color: #1890ff;
+}
+
+/* Theme: Success */
+.alert.alert-success .alert-container {
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+  color: #135200;
+}
+
+.alert.alert-success .alert-icon {
+  color: #52c41a;
+}
+
+/* Theme: Error */
+.alert.alert-error .alert-container {
+  background-color: #fff1f0;
+  border: 1px solid #ffccc7;
+  color: #820014;
+}
+
+.alert.alert-error .alert-icon {
+  color: #f5222d;
+}
+
+/* Responsive Styles */
+@media (width >= 600px) {
+  .alert.alert-banner .alert-container {
+    padding: 2rem;
+  }
+
+  .alert.alert-banner .alert-title {
+    font-size: 1.25rem;
+  }
+
+  .alert.alert-banner .alert-description {
+    font-size: 1.063rem;
+  }
+
+  .alert-cta {
+    margin-top: 1.25rem;
+  }
+}
+
+@media (width >= 900px) {
+  .alert-container {
+    gap: 1.5rem;
+  }
+
+  .alert.alert-banner .alert-container {
+    padding: 2.5rem;
+  }
+}
+
+/* Accessibility - Focus Styles */
+.alert-close:focus {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
+/* Print Styles - Hide close button when printing */
+@media print {
+  .alert-close {
+    display: none;
+  }
+}
