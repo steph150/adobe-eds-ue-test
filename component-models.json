@@ -142,6 +142,89 @@
     ]
   },
   {
+    "id": "alert",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "alertType",
+        "label": "Alert Type",
+        "description": "Banner includes a CTA button, Message does not",
+        "options": [
+          {
+            "name": "Banner",
+            "value": "banner"
+          },
+          {
+            "name": "Message",
+            "value": "message"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "alertTheme",
+        "label": "Alert Theme",
+        "description": "Theme affects the background color and border",
+        "options": [
+          {
+            "name": "Neutral",
+            "value": "neutral"
+          },
+          {
+            "name": "Warning",
+            "value": "warning"
+          },
+          {
+            "name": "Information",
+            "value": "information"
+          },
+          {
+            "name": "Success",
+            "value": "success"
+          },
+          {
+            "name": "Error",
+            "value": "error"
+          }
+        ]
+      },
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "title",
+        "label": "Alert Title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "ctaLink",
+        "label": "CTA Link",
+        "description": "Only used for Banner type"
+      },
+      {
+        "component": "text-input",
+        "valueType": "string",
+        "name": "ctaText",
+        "label": "CTA Button Text",
+        "description": "Only used for Banner type"
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "showClose",
+        "label": "Show Close Button"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {

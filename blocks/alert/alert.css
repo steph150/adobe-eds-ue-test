@@ -1,0 +1,235 @@
+/* Alert block */
+.alert {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container holds icon, content, and close button */
+.alert-container {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  padding: 16px 48px 16px 16px;
+  border-left: 4px solid;
+  min-height: 56px;
+}
+
+/* Icon styling */
+.alert-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.alert-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Content area */
+.alert-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Title styling */
+.alert-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Description styling */
+.alert-description {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.alert-description p {
+  margin: 0;
+}
+
+/* CTA button container */
+.alert-cta {
+  margin-top: 8px;
+}
+
+/* Primary button styling for CTA */
+.alert-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: #2d7738;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: background-color 0.2s ease;
+}
+
+.alert-button:hover {
+  background-color: #1f5527;
+}
+
+.alert-button svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentcolor;
+}
+
+/* Close button */
+.alert-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.alert-close:hover {
+  opacity: 1;
+}
+
+.alert-close svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+/* Theme: Neutral */
+.alert-neutral {
+  background-color: #e8e8ed;
+  border-left-color: #6b6b7b;
+}
+
+.alert-neutral .alert-icon {
+  background-color: #d1d1db;
+  color: #2d2d3a;
+}
+
+.alert-neutral .alert-title,
+.alert-neutral .alert-description {
+  color: #2d2d3a;
+}
+
+/* Theme: Warning */
+.alert-warning {
+  background-color: #fff4e5;
+  border-left-color: #ff9800;
+}
+
+.alert-warning .alert-icon {
+  background-color: #ffe0b2;
+  color: #e65100;
+}
+
+.alert-warning .alert-title,
+.alert-warning .alert-description {
+  color: #663c00;
+}
+
+/* Theme: Information */
+.alert-information {
+  background-color: #e3f2fd;
+  border-left-color: #2196f3;
+}
+
+.alert-information .alert-icon {
+  background-color: #bbdefb;
+  color: #0d47a1;
+}
+
+.alert-information .alert-title,
+.alert-information .alert-description {
+  color: #0d47a1;
+}
+
+/* Theme: Success */
+.alert-success {
+  background-color: #e8f5e9;
+  border-left-color: #4caf50;
+}
+
+.alert-success .alert-icon {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+}
+
+.alert-success .alert-title,
+.alert-success .alert-description {
+  color: #1b5e20;
+}
+
+/* Theme: Error */
+.alert-error {
+  background-color: #ffebee;
+  border-left-color: #f44336;
+}
+
+.alert-error .alert-icon {
+  background-color: #ffcdd2;
+  color: #b71c1c;
+}
+
+.alert-error .alert-title,
+.alert-error .alert-description {
+  color: #b71c1c;
+}
+
+/* Mobile responsive adjustments */
+@media (width <= 600px) {
+  .alert-container {
+    padding: 12px 40px 12px 12px;
+    gap: 12px;
+  }
+
+  .alert-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .alert-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .alert-title {
+    font-size: 14px;
+  }
+
+  .alert-description {
+    font-size: 13px;
+  }
+
+  .alert-button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .alert-close {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+/* Desktop larger spacing */
+@media (width >= 900px) {
+  .alert-container {
+    padding: 20px 56px 20px 20px;
+  }
+}
