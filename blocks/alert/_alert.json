@@ -1,0 +1,96 @@
+{
+  "definitions": [{
+    "title": "Alert",
+    "id": "alert",
+    "plugins": {
+      "xwalk": {
+        "page": {
+          "resourceType": "core/franklin/components/block/v1/block",
+          "template": {
+            "name": "Alert",
+            "model": "alert"
+          }
+        }
+      }
+    }
+  }],
+  "models": [{
+    "id": "alert",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Alert Title",
+        "description": "Optional title for the alert"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Description",
+        "description": "Alert message content"
+      },
+      {
+        "component": "select",
+        "name": "alertType",
+        "label": "Alert Type",
+        "description": "Choose between banner (with CTA) or message (no CTA)",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Banner",
+            "value": "banner"
+          },
+          {
+            "name": "Message",
+            "value": "message"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "alertTheme",
+        "label": "Alert Theme",
+        "description": "Select the theme/color scheme for the alert",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Neutral",
+            "value": "neutral"
+          },
+          {
+            "name": "Warning",
+            "value": "warning"
+          },
+          {
+            "name": "Information",
+            "value": "information"
+          },
+          {
+            "name": "Success",
+            "value": "success"
+          },
+          {
+            "name": "Error",
+            "value": "error"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "name": "showCloseButton",
+        "label": "Show Close Button",
+        "description": "Display close button to dismiss the alert (reappears on reload)",
+        "valueType": "boolean"
+      },
+      {
+        "component": "aem-content",
+        "name": "cta",
+        "label": "CTA Button",
+        "description": "Optional call-to-action button (only for Banner type)"
+      }
+    ]
+  }],
+  "filters": []
+}
