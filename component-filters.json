@@ -8,6 +8,7 @@
   {
     "id": "section",
     "components": [
+      "alert",
       "text",
       "image",
       "button",
