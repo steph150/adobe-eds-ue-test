@@ -1,0 +1,257 @@
+/* Alert Block Styles */
+.alert {
+  margin: 20px 0;
+  border-radius: 4px;
+  font-family: var(--body-font-family);
+  position: relative;
+}
+
+.alert .alert-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.alert .alert-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+}
+
+.alert .alert-icon {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.alert .alert-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert .alert-title {
+  display: block;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.alert .alert-description {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.alert .alert-description p {
+  margin: 0 0 8px;
+}
+
+.alert .alert-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* CTA Button (Banner type only) */
+.alert .alert-cta {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Close Button */
+.alert .alert-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.alert .alert-close:hover,
+.alert .alert-close:focus {
+  opacity: 1;
+}
+
+/* Theme: Neutral */
+.alert.neutral {
+  background-color: #f5f5f5;
+  border-color: #d0d0d0;
+  color: #333;
+}
+
+.alert.neutral .alert-icon {
+  color: #666;
+}
+
+.alert.neutral .alert-cta {
+  background-color: #333;
+  color: #fff;
+}
+
+.alert.neutral .alert-cta:hover {
+  background-color: #555;
+}
+
+/* Theme: Warning */
+.alert.warning {
+  background-color: #fff3cd;
+  border-color: #ffc107;
+  color: #856404;
+}
+
+.alert.warning .alert-icon {
+  color: #ff9800;
+}
+
+.alert.warning .alert-cta {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+.alert.warning .alert-cta:hover {
+  background-color: #f57c00;
+}
+
+/* Theme: Information */
+.alert.information {
+  background-color: #d1ecf1;
+  border-color: #0dcaf0;
+  color: #055160;
+}
+
+.alert.information .alert-icon {
+  color: #0dcaf0;
+}
+
+.alert.information .alert-cta {
+  background-color: #0dcaf0;
+  color: #000;
+}
+
+.alert.information .alert-cta:hover {
+  background-color: #0aa2c0;
+}
+
+/* Theme: Success */
+.alert.success {
+  background-color: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.alert.success .alert-icon {
+  color: #28a745;
+}
+
+.alert.success .alert-cta {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.alert.success .alert-cta:hover {
+  background-color: #218838;
+}
+
+/* Theme: Error */
+.alert.error {
+  background-color: #f8d7da;
+  border-color: #dc3545;
+  color: #721c24;
+}
+
+.alert.error .alert-icon {
+  color: #dc3545;
+}
+
+.alert.error .alert-cta {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.alert.error .alert-cta:hover {
+  background-color: #c82333;
+}
+
+/* Type: Message - Simplified layout */
+.alert.message .alert-container {
+  padding: 12px 16px;
+}
+
+.alert.message .alert-icon {
+  font-size: 18px;
+}
+
+.alert.message .alert-title {
+  font-size: 14px;
+}
+
+.alert.message .alert-description {
+  font-size: 13px;
+}
+
+/* Type: Banner - Enhanced layout */
+.alert.banner .alert-container {
+  padding: 20px 24px;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .alert .alert-container {
+    flex-wrap: wrap;
+  }
+
+  .alert.banner .alert-cta {
+    margin-left: 0;
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .alert .alert-container {
+    padding: 12px 16px;
+  }
+
+  .alert.banner .alert-container {
+    padding: 16px 20px;
+  }
+
+  .alert .alert-content {
+    gap: 8px;
+  }
+
+  .alert .alert-icon {
+    font-size: 18px;
+  }
+
+  .alert .alert-title {
+    font-size: 14px;
+  }
+
+  .alert .alert-description {
+    font-size: 13px;
+  }
+
+  .alert .alert-cta {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}

@@ -142,6 +142,92 @@
     ]
   },
   {
+    "id": "alert",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Alert Title",
+        "description": "Optional title for the alert message"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description",
+        "description": "Alert description message"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "type",
+        "label": "Alert Type",
+        "description": "Choose between Banner (with CTA) or Message (simpler)",
+        "options": [
+          {
+            "name": "Banner",
+            "value": "banner"
+          },
+          {
+            "name": "Message",
+            "value": "message"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "theme",
+        "label": "Alert Theme",
+        "description": "Background theme affecting the alert color",
+        "options": [
+          {
+            "name": "Neutral",
+            "value": "neutral"
+          },
+          {
+            "name": "Warning",
+            "value": "warning"
+          },
+          {
+            "name": "Information",
+            "value": "information"
+          },
+          {
+            "name": "Success",
+            "value": "success"
+          },
+          {
+            "name": "Error",
+            "value": "error"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "closeable",
+        "label": "Show Close Button",
+        "description": "Display a close button to dismiss the alert"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "cta_text",
+        "label": "CTA Button Text",
+        "description": "Button text (Banner type only)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "cta_link",
+        "label": "CTA Button Link",
+        "description": "Button URL (Banner type only)"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
