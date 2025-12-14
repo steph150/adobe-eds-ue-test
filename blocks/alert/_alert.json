@@ -48,14 +48,14 @@
       {
         "component": "boolean",
         "valueType": "boolean",
-        "name": "closeable",
+        "name": "classes_closeable",
         "label": "Show Close Button",
         "description": "When checked, displays a close (X) button"
       },
       {
         "component": "select",
         "valueType": "string",
-        "name": "type",
+        "name": "classes",
         "label": "Alert Type",
         "description": "Banner includes CTA button, Message is compact",
         "options": [
@@ -66,7 +66,7 @@
       {
         "component": "select",
         "valueType": "string",
-        "name": "theme",
+        "name": "classes_theme",
         "label": "Alert Theme",
         "description": "Visual theme affecting background color and border",
         "options": [
