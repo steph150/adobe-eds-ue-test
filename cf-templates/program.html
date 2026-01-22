@@ -11,19 +11,24 @@
         <div class="hero">
           <div>
             <div>
-              <p>
-                <picture>
-                  <img src="{{image._dynamicUrl}}">
-                </picture>
-              </p>
+              <picture>
+                <img src="{{image._dynamicUrl}}" alt="{{programName}}">
+              </picture>
+            </div>
+          </div>
+          <div>
+            <div>
               <h1>{{programName}}</h1>
             </div>
           </div>
         </div>
+      </div>
+      <div>
         <p><strong>Code:</strong> {{programCode}}</p>
-        <div>{{{descriptionOfProgram.html}}}</div>
+        {{{descriptionOfProgram.html}}}
       </div>
     </main>
     <footer></footer>
   </body>
 </html>
+{{/data.programModelList.items}}
