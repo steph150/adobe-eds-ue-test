@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+{{#data.programModelList.items}}
 <html>
   <head>
-    <title>{{properties.title}}</title>
+    <title>{{programName}}</title>
   </head>
   <body>
     <header></header>
@@ -11,22 +12,23 @@
           <div>
             <div>
               <picture>
-                <img src="{{properties.elements.image.value}}" alt="{{properties.elements.programName.value}}">
+                <img src="{{image._dynamicUrl}}" alt="{{programName}}">
               </picture>
             </div>
           </div>
           <div>
             <div>
-              <h1>{{properties.elements.programName.value}}</h1>
+              <h1>{{programName}}</h1>
             </div>
           </div>
         </div>
       </div>
       <div>
-        <p><strong>Code:</strong> {{properties.elements.programCode.value}}</p>
-        {{{properties.elements.descriptionOfProgram.value}}}
+        <p><strong>Code:</strong> {{programCode}}</p>
+        {{{descriptionOfProgram.html}}}
       </div>
     </main>
     <footer></footer>
   </body>
 </html>
+{{/data.programModelList.items}}
