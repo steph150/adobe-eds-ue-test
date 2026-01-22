@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{{#data.programModelList.items}}
+<html>
+  <head>
+    <title>{{programName}}</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div>
+        <div class="hero">
+          <div>
+            <div>
+              <p>
+                <picture>
+                  <img src="{{image._dynamicUrl}}">
+                </picture>
+              </p>
+              <h1>{{programName}}</h1>
+            </div>
+          </div>
+        </div>
+        <p><strong>Code:</strong> {{programCode}}</p>
+        <div>{{{descriptionOfProgram.html}}}</div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
