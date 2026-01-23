@@ -1,0 +1,411 @@
+/* Alert Block Styles */
+
+.alert {
+  margin: 0;
+  width: 100%;
+}
+
+.alert-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: 4px;
+  border: 1px solid;
+  font-family: var(--body-font-family);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.alert-container.alert-closing {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.alert-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+}
+
+/* Icon styling */
+.alert-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.alert-icon span {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Text content */
+.alert-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 4px;
+}
+
+.alert-description {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.alert-description p {
+  margin: 0;
+}
+
+.alert-description p + p {
+  margin-top: 8px;
+}
+
+/* CTA Button (Banner type only) */
+.alert-cta {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-left: 16px;
+}
+
+.alert-cta .button {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.alert-cta .button:hover {
+  transform: translateY(-1px);
+}
+
+.alert-cta .button:active {
+  transform: translateY(0);
+}
+
+/* Close button */
+.alert-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  opacity: 0.7;
+}
+
+.alert-close:hover {
+  opacity: 1;
+}
+
+.alert-close:focus {
+  outline: 2px solid;
+  outline-offset: 2px;
+}
+
+/* Theme: Neutral */
+.alert-neutral {
+  background-color: #f5f5f5;
+  border-color: #d0d0d0;
+  color: #333;
+}
+
+.alert-neutral .alert-icon {
+  color: #666;
+}
+
+.alert-neutral .alert-icon::before {
+  content: 'ℹ';
+  font-size: 20px;
+}
+
+.alert-neutral .alert-close {
+  color: #333;
+}
+
+.alert-neutral .alert-cta .button.primary {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Theme: Warning */
+.alert-warning {
+  background-color: #fff8e1;
+  border-color: #ffc107;
+  color: #663c00;
+}
+
+.alert-warning .alert-icon {
+  color: #ff9800;
+}
+
+.alert-warning .alert-icon::before {
+  content: '⚠';
+  font-size: 20px;
+}
+
+.alert-warning .alert-close {
+  color: #663c00;
+}
+
+.alert-warning .alert-cta .button.primary {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+/* Theme: Information */
+.alert-information {
+  background-color: #e3f2fd;
+  border-color: #2196f3;
+  color: #0d47a1;
+}
+
+.alert-information .alert-icon {
+  color: #1976d2;
+}
+
+.alert-information .alert-icon::before {
+  content: 'ℹ';
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.alert-information .alert-close {
+  color: #0d47a1;
+}
+
+.alert-information .alert-cta .button.primary {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+/* Theme: Success */
+.alert-success {
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+  color: #1b5e20;
+}
+
+.alert-success .alert-icon {
+  color: #388e3c;
+}
+
+.alert-success .alert-icon::before {
+  content: '✓';
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.alert-success .alert-close {
+  color: #1b5e20;
+}
+
+.alert-success .alert-cta .button.primary {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+/* Theme: Error */
+.alert-error {
+  background-color: #ffebee;
+  border-color: #f44336;
+  color: #b71c1c;
+}
+
+.alert-error .alert-icon {
+  color: #d32f2f;
+}
+
+.alert-error .alert-icon::before {
+  content: '✕';
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.alert-error .alert-close {
+  color: #b71c1c;
+}
+
+.alert-error .alert-cta .button.primary {
+  background-color: #f44336;
+  color: #fff;
+}
+
+/* Theme hover states - grouped after all base theme styles */
+.alert-neutral .alert-cta .button.primary:hover {
+  background-color: #000;
+}
+
+.alert-neutral .alert-close:hover {
+  background-color: rgb(0 0 0 / 10%);
+}
+
+.alert-warning .alert-cta .button.primary:hover {
+  background-color: #f57c00;
+}
+
+.alert-warning .alert-close:hover {
+  background-color: rgb(255 152 0 / 10%);
+}
+
+.alert-information .alert-cta .button.primary:hover {
+  background-color: #1976d2;
+}
+
+.alert-information .alert-close:hover {
+  background-color: rgb(33 150 243 / 10%);
+}
+
+.alert-success .alert-cta .button.primary:hover {
+  background-color: #388e3c;
+}
+
+.alert-success .alert-close:hover {
+  background-color: rgb(76 175 80 / 10%);
+}
+
+.alert-error .alert-cta .button.primary:hover {
+  background-color: #d32f2f;
+}
+
+.alert-error .alert-close:hover {
+  background-color: rgb(244 67 54 / 10%);
+}
+
+/* Theme focus states - grouped after hover states */
+.alert-neutral .alert-close:focus {
+  outline-color: #333;
+}
+
+.alert-warning .alert-close:focus {
+  outline-color: #ff9800;
+}
+
+.alert-information .alert-close:focus {
+  outline-color: #2196f3;
+}
+
+.alert-success .alert-close:focus {
+  outline-color: #4caf50;
+}
+
+.alert-error .alert-close:focus {
+  outline-color: #f44336;
+}
+
+/* Banner type specific styles */
+.alert-banner {
+  padding: 20px;
+}
+
+.alert-banner .alert-title {
+  font-size: 18px;
+}
+
+.alert-banner .alert-description {
+  font-size: 16px;
+}
+
+/* Message type specific styles */
+.alert-message {
+  padding: 12px 16px;
+}
+
+.alert-message .alert-title {
+  font-size: 14px;
+}
+
+.alert-message .alert-description {
+  font-size: 13px;
+}
+
+/* Responsive adjustments */
+@media (width <= 600px) {
+  .alert-container {
+    padding: 12px;
+  }
+
+  .alert-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .alert-cta {
+    margin-left: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .alert-cta .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .alert-close {
+    top: 8px;
+    right: 8px;
+  }
+
+  .alert-banner {
+    padding: 16px;
+  }
+
+  .alert-banner .alert-title {
+    font-size: 16px;
+  }
+
+  .alert-banner .alert-description {
+    font-size: 14px;
+  }
+}
+
+@media (width >= 601px) and (width <= 900px) {
+  .alert-banner {
+    padding: 18px;
+  }
+}
+
+/* Ensure proper spacing when close button is present */
+.alert-container:has(.alert-close) .alert-content {
+  padding-right: 32px;
+}
+
+@media (width <= 600px) {
+  .alert-container:has(.alert-close) .alert-content {
+    padding-right: 24px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .alert-close {
+    display: none;
+  }
+}
